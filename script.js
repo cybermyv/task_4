@@ -24,43 +24,27 @@
 		y = Number(y);
 
 		if (x - 1 > 0) {
-			if (y - 2 > 0) {
-				chessBoard.rows[x - 1].cells[y - 2].classList.add('move');
-			}
+			if (y - 2 > 0) { chessBoard.rows[x - 1].cells[y - 2].classList.add('move'); }
 
-			if (y + 2 < 9) {
-				chessBoard.rows[x - 1].cells[y + 2].classList.add('move');
-			}
+			if (y + 2 < 9) { chessBoard.rows[x - 1].cells[y + 2].classList.add('move'); }
 		}
 
 		if (x + 1 < 9) {
-			if (y - 2 > 0) {
-				chessBoard.rows[x + 1].cells[y - 2].classList.add('move');
-			}
+			if (y - 2 > 0) { chessBoard.rows[x + 1].cells[y - 2].classList.add('move'); }
 
-			if (y + 2 < 9) {
-				chessBoard.rows[x + 1].cells[y + 2].classList.add('move');
-			}
+			if (y + 2 < 9) { chessBoard.rows[x + 1].cells[y + 2].classList.add('move'); }
 		}
 
 		if (x - 2 > 0) {
-			if (y - 1 > 0) {
-				chessBoard.rows[x - 2].cells[y - 1].classList.add('move');
-			}
+			if (y - 1 > 0) { chessBoard.rows[x - 2].cells[y - 1].classList.add('move'); }
 
-			if (y + 1 < 9) {
-				chessBoard.rows[x - 2].cells[y + 1].classList.add('move');
-			}
+			if (y + 1 < 9) { chessBoard.rows[x - 2].cells[y + 1].classList.add('move'); }
 		}
 
 		if (x + 2 < 9) {
-			if (y - 1 > 0) {
-				chessBoard.rows[x + 2].cells[y - 1].classList.add('move');
-			}
+			if (y - 1 > 0) { chessBoard.rows[x + 2].cells[y - 1].classList.add('move'); }
 
-			if (y + 1 < 9) {
-				chessBoard.rows[x + 2].cells[y + 1].classList.add('move');
-			}
+			if (y + 1 < 9) { chessBoard.rows[x + 2].cells[y + 1].classList.add('move'); }
 		}
 	}
 
@@ -70,13 +54,9 @@
 		for (let j = 0; j < CHESS_DIMMENSION; j++) {
 			const cell = row.insertCell(j);
 
-			i === 0 || i === CHESS_DIMMENSION - 1
-				? cell.classList.add('edging')
-				: cell.setAttribute('data-cell-x', i);
+			i === 0 || i === CHESS_DIMMENSION - 1 ? cell.classList.add('edging') : cell.setAttribute('data-cell-x', i);
 
-			j === 0 || j === CHESS_DIMMENSION - 1
-				? cell.classList.add('edging')
-				: cell.setAttribute('data-cell-y', j);
+			j === 0 || j === CHESS_DIMMENSION - 1 ? cell.classList.add('edging') : cell.setAttribute('data-cell-y', j);
 		}
 	}
 
@@ -86,26 +66,17 @@
 		if (i % 2) {
 			for (let j = 1; j < CHESS_DIMMENSION - 1; j++) {
 				j % 2
-					? chessBoard.rows[CHESS_DIMMENSION - 1 - i].cells[j].classList.add(
-						'cellBlack'
-					)
-					: '';
+					? chessBoard.rows[CHESS_DIMMENSION - 1 - i].cells[j].classList.add('cellBlack') : '';
 			}
 		} else {
 			for (let j = 1; j < CHESS_DIMMENSION - 1; j++) {
 				j % 2
-					? ''
-					: chessBoard.rows[CHESS_DIMMENSION - 1 - i].cells[j].classList.add(
-						'cellBlack'
-					);
+					? '' : chessBoard.rows[CHESS_DIMMENSION - 1 - i].cells[j].classList.add('cellBlack');
 			}
 		}
 	}
 
-	for (let i = 1; i < CHESS_DIMMENSION - 1; i++) {
-		chessBoard.rows[CHESS_DIMMENSION - 1].cells[i].innerHTML =
-			EDGING_BOARD[i - 1];
-	}
+	for (let i = 1; i < CHESS_DIMMENSION - 1; i++) { chessBoard.rows[CHESS_DIMMENSION - 1].cells[i].innerHTML = EDGING_BOARD[i - 1]; }
 
 	chessBoard.addEventListener('click', event => {
 		const td = event.target.closest('td');

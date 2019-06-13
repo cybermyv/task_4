@@ -27,16 +27,16 @@ header {
 	text-align: center;
 }
 
-.container{
+.container {
 	display: flex;
-	justify-content: center;	
+	justify-content: center;
 }
 
 table {
 	border: 1px solid black;
 	text-align: center;
 	border-collapse: collapse;
-	
+
 }
 
 table td {
@@ -45,19 +45,19 @@ table td {
 	height: 50px;
 }
 
-.edging{
+.edging {
 	border: none;
 }
 
-.cellBlack{
+.cellBlack {
 	background-color: black;
 }
 
-.horse{
+.horse {
 	background-color: blue;
 }
 
-.move{
+.move {
 	background-color: green;
 }
 

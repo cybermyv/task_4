@@ -65,13 +65,11 @@
 
 		if (i % 2) {
 			for (let j = 1; j < CHESS_DIMMENSION - 1; j++) {
-				j % 2
-					? chessBoard.rows[CHESS_DIMMENSION - 1 - i].cells[j].classList.add('cellBlack') : '';
+				j % 2 ? chessBoard.rows[CHESS_DIMMENSION - 1 - i].cells[j].classList.add('cellBlack') : '';
 			}
 		} else {
 			for (let j = 1; j < CHESS_DIMMENSION - 1; j++) {
-				j % 2
-					? '' : chessBoard.rows[CHESS_DIMMENSION - 1 - i].cells[j].classList.add('cellBlack');
+				j % 2 ? '' : chessBoard.rows[CHESS_DIMMENSION - 1 - i].cells[j].classList.add('cellBlack');
 			}
 		}
 	}

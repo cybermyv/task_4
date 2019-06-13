@@ -53,6 +53,14 @@ table td {
 	background-color: black;
 }
 
+.horse{
+	background-color: blue;
+}
+
+.move{
+	background-color: green;
+}
+
 footer {
 	flex: 0 0 auto;
 	text-align: center;

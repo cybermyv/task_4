@@ -1,8 +1,8 @@
-(function () {
-	"use strict";
+(function() {
+	'use strict';
 
 	const CHESS_DIMMENSION = 10;
-	const EDGING_BOARD = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
+	const EDGING_BOARD = [ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H' ];
 	const chessBoard = document.querySelector('.chessBoard');
 
 	function clearChessBord() {
@@ -11,40 +11,52 @@
 
 		if (horse) horse.classList.remove('horse');
 
-		if (allMove) {
-			allMove.forEach(el => {
-				el.classList.remove('move');
-			});
-		}
-
+		allMove.forEach((el) => {
+			el.classList.remove('move');
+		});
 	}
 
 	function setMove(x, y) {
-		x = Number(x);
-		y = Number(y);
+
 
 		if (x - 1 > 0) {
-			if (y - 2 > 0) { chessBoard.rows[x - 1].cells[y - 2].classList.add('move'); }
+			if (y - 2 > 0) {
+				chessBoard.rows[x - 1].cells[y - 2].classList.add('move');
+			}
 
-			if (y + 2 < 9) { chessBoard.rows[x - 1].cells[y + 2].classList.add('move'); }
+			if (y + 2 < CHESS_DIMMENSION - 1) {
+				chessBoard.rows[x - 1].cells[y + 2].classList.add('move');
+			}
 		}
 
-		if (x + 1 < 9) {
-			if (y - 2 > 0) { chessBoard.rows[x + 1].cells[y - 2].classList.add('move'); }
+		if (x + 1 < CHESS_DIMMENSION - 1) {
+			if (y - 2 > 0) {
+				chessBoard.rows[x + 1].cells[y - 2].classList.add('move');
+			}
 
-			if (y + 2 < 9) { chessBoard.rows[x + 1].cells[y + 2].classList.add('move'); }
+			if (y + 2 < CHESS_DIMMENSION - 1) {
+				chessBoard.rows[x + 1].cells[y + 2].classList.add('move');
+			}
 		}
 
 		if (x - 2 > 0) {
-			if (y - 1 > 0) { chessBoard.rows[x - 2].cells[y - 1].classList.add('move'); }
+			if (y - 1 > 0) {
+				chessBoard.rows[x - 2].cells[y - 1].classList.add('move');
+			}
 
-			if (y + 1 < 9) { chessBoard.rows[x - 2].cells[y + 1].classList.add('move'); }
+			if (y + 1 < CHESS_DIMMENSION - 1) {
+				chessBoard.rows[x - 2].cells[y + 1].classList.add('move');
+			}
 		}
 
 		if (x + 2 < 9) {
-			if (y - 1 > 0) { chessBoard.rows[x + 2].cells[y - 1].classList.add('move'); }
+			if (y - 1 > 0) {
+				chessBoard.rows[x + 2].cells[y - 1].classList.add('move');
+			}
 
-			if (y + 1 < 9) { chessBoard.rows[x + 2].cells[y + 1].classList.add('move'); }
+			if (y + 1 < CHESS_DIMMENSION - 1) {
+				chessBoard.rows[x + 2].cells[y + 1].classList.add('move');
+			}
 		}
 	}
 
@@ -74,14 +86,16 @@
 		}
 	}
 
-	for (let i = 1; i < CHESS_DIMMENSION - 1; i++) { chessBoard.rows[CHESS_DIMMENSION - 1].cells[i].innerHTML = EDGING_BOARD[i - 1]; }
+	for (let i = 1; i < CHESS_DIMMENSION - 1; i++) {
+		chessBoard.rows[CHESS_DIMMENSION - 1].cells[i].innerHTML = EDGING_BOARD[i - 1];
+	}
 
-	chessBoard.addEventListener('click', event => {
+	chessBoard.addEventListener('click', (event) => {
 		const td = event.target.closest('td');
 
 		if (td.hasAttribute('data-cell-x') && td.hasAttribute('data-cell-y')) {
-			const cellX = td.getAttribute('data-cell-x');
-			const cellY = td.getAttribute('data-cell-y');
+			const cellX = Number(td.getAttribute('data-cell-x'));
+			const cellY = Number(td.getAttribute('data-cell-y'));
 
 			clearChessBord();
 			setMove(cellX, cellY);
